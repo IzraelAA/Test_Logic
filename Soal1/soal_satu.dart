@@ -1,21 +1,46 @@
-void SoalSatu({String name,String tanggal,String namaWarung,List<Name> list }){
-  
-  print(center( namaWarung));
-  print(lengthString("Tanggal :", " ",tanggal));
-  print(lengthString("Nama Kasir :", " ",name));
-  print(lengthString("", "=",""));
+import 'dart:async';
+import 'dart:io'; 
+ void FirstMain() async{ 
+  List<Name> list = [];
+  var sNamaWrung = "assasa";
+//   stdout.write("\nNama Warung : ");
+//  sNamaWrung = (await stdin.readLineSync().toString())  ; 
+  var sNama = "";
+//   stdout.write("\nNama : ");
+//   sNama = (await stdin.readLineSync().toString())  ; 
+  var sTanggal = "";
+//   stdout.write("\nNama Tanggal : ");
+//    sTanggal =(await stdin.readLineSync().toString() )  ;   
+  list.add(Name("Nasi", "RP.5.000"));
+  list.add(Name("Lauk","Rp.10.000"));
+  list.add(Name("Minum","Rp.5.000"));
+  await SoalSatu(name:sNama,namaWarung: sNamaWrung,list: list,tanggal:sTanggal);
+
+}  
+Future<void> SoalSatu({String name,String tanggal,String namaWarung,List<Name> list })async{
+  setLog("\n"+"\n"+"\n"+"\n"+"\n");
+  setLog( center( namaWarung));
+  setLog(lengthString("Tanggal :", " ",tanggal));
+  setLog(lengthString("Nama Kasir :", " ",name));
+  setLog(lengthString("", "=",""));
   list.forEach((element) { 
-    print(lengthString(element.title, ".",element.price));
+    setLog(lengthString(element.title, ".",element.price));
   });
 }
 String center(String nameCenter){
   String code ="";
-  int left = 23 - nameCenter.length  ;   
+  
+  
+  int left = 25 - nameCenter.length  ;
+  print(left.toString() + nameCenter.length.toString());   
   for (var i = 0; i < left; i++) { 
     code = code + " ";  
   }
 
-  return code+nameCenter;
+  return code+nameCenter+"";
+}
+void setLog(String value){
+  print(value);
 }
 String lengthString(String left,String center,String right){
   String code ="";
@@ -24,7 +49,7 @@ String lengthString(String left,String center,String right){
     code = code + center;  
   }
 
-  return left+code+right;
+  return left+code+right+"\n";
 }
 class Name {
   final String title;
