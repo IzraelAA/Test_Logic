@@ -16,6 +16,7 @@ void TwoMain() async {
   int countFive = 0;
   int countSix = 0;
   int countSeven = 0;
+  
   post.forEach((element) {
     if (element.profile.phones.length == 0) {
       String and = " ";
