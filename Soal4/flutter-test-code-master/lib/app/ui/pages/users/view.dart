@@ -7,7 +7,7 @@ class UsersPage extends View {
   UsersPage({Key key}) : super(key: key);
   @override
   _UsersPageState createState() => new _UsersPageState(
-    AppComponent.getInjector().getDependency<UsersController>());
+      AppComponent.getInjector().getDependency<UsersController>());
 }
 
 class _UsersPageState extends ViewState<UsersPage, UsersController> {
@@ -17,14 +17,20 @@ class _UsersPageState extends ViewState<UsersPage, UsersController> {
   Widget buildPage() {
     return Scaffold(
       key: globalKey,
-      body: ListView.builder(
-        itemCount: controller.items.length,
-        itemBuilder: (context, index) {
-          final item = controller.items[index];
-          return ListTile(
-            title: item.buildContent(context)
-          );
-        },
+      body: SafeArea(
+        child: Column(
+          children: [
+            Text(controller.items.length.toString()),
+            ListView.builder(
+              itemCount: controller.items.length,
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                final item = controller.items[index];
+                return ListTile(title: item.buildContent(context));
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

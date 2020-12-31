@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:refactory_flutter_test/app/infrastructures/app_component.dart';
-import 'package:refactory_flutter_test/app/infrastructures/router.dart';
-import 'package:refactory_flutter_test/app/ui/pages/home/view.dart';
-import 'package:refactory_flutter_test/app/ui/res/generated/i18n.dart';
+
+import 'infrastructures/app_component.dart';
+import 'infrastructures/router.dart' as ModularRouter;
+import 'ui/pages/home/view.dart';
+import 'ui/res/generated/i18n.dart';
 
 void main() {
   DotEnv().load('.env');
@@ -13,11 +14,11 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final Router _router;
+  final ModularRouter.Router _router;
   final _navigatorKey = GlobalKey<NavigatorState>();
 
-  MyApp() : _router = Router();
-  
+  MyApp() : _router = ModularRouter.Router();
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
