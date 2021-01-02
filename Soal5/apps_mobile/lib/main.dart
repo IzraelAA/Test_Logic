@@ -1,4 +1,4 @@
-import 'package:apps_mobile/ui/dashboard.dart';
+import 'package:apps_mobile/ui/dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 
 void main() {
