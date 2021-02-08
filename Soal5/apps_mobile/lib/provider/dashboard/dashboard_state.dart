@@ -65,6 +65,7 @@ class DashboardState extends ChangeNotifier {
     true
   ];
   DashboardState() {
+    String adnan = "adnan";
     dayNow = DateTime.now().day;
     DateTime now = DateTime.now();
     formattedDate = DateFormat('E,MMM').format(now);
